@@ -1,8 +1,10 @@
 # ShopFlow Pipeline
 An end-to-end ETL pipeline that extracts raw e-commerce data, cleans and transforms it using Python, and loads it into PostgreSQL for SQL-based business analysis and a Power BI dashboard.
 
-**Dataset link:** 
-couldn't upload the dataset due to large file size.
+## 📊 Dataset
+
+The dataset is available on Kaggle:
+https://www.kaggle.com/datasets/arpanboassurin/shopflow-data
 
 ---
 
