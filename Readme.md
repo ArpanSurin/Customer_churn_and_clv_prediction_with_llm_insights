@@ -73,7 +73,7 @@ shopflow-pipeline/
 
 **1. Clone the repo and set up the environment**
 ```bash
-git clone https://github.com/yourusername/shopflow-pipeline.git
+git clone https://github.com/ArpanSurin/Shopflow-pipeline.git
 cd shopflow-pipeline
 
 # Windows
