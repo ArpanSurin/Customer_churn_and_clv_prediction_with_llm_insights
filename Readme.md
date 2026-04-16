@@ -106,4 +106,4 @@ python pipeline.py
 - [x] Extract, Transform, Load pipeline
 - [x] PostgreSQL loading
 - [x] SQL business analysis
-- [ ] Power BI dashboard *(in progress)*\
+- [x] Power BI dashboard
