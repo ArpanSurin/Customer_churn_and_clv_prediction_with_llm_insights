@@ -8,6 +8,15 @@ https://www.kaggle.com/datasets/arpanboassurin/shopflow-data
 
 ---
 
+## 💹 Dashboard
+
+![Page 1]()\
+![Page 2]()\
+![Page 3]()
+
+
+---
+
 ## Tech Stack
 Python · Pandas · PostgreSQL · SQLAlchemy · psycopg2 · Power BI
 
@@ -60,6 +69,12 @@ shopflow-pipeline/
 ├── notebooks/
 │   ├── customers.ipynb
 │   └── orders.ipynb
+│
+├── dashboard/
+│   ├── dashboard.pbix
+│   ├── Page_1.png
+│   ├── Page_2.png
+│   └── Page_3.png
 │
 └── data/
     └── raw/
