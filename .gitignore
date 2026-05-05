@@ -7,3 +7,8 @@ test.py
 data/
 
 logs/
+
+dashboard.pbix
+
+**/__pycache__/
+

@@ -1,6 +1,7 @@
 -- View 1: fact table — one row per order
-CREATE OR REPLACE VIEW fact_orders AS
-SELECT
+drop view if exists fact_orders;
+create view fact_orders as
+select
     o.order_id,
     o.customer_id,
     o.order_timestamp,
@@ -16,11 +17,12 @@ SELECT
     o.delivery_days,
     o.rating,
     o.is_returned
-FROM orders_cleaned o;
+from orders o;
 
 
 -- View 2: customer dimension — one row per customer with everything about them
-CREATE OR REPLACE VIEW dim_customers AS
+drop view if exists dim_customers;
+create view dim_customers as
 WITH order_metrics AS (
     SELECT
         customer_id,
@@ -28,13 +30,13 @@ WITH order_metrics AS (
         ROUND(SUM(final_amount)::numeric, 2) AS lifetime_spend,
         ROUND(AVG(final_amount)::numeric, 2) AS avg_order_value,
         MAX(order_timestamp)::date  AS last_order_date
-    FROM orders_cleaned
+    FROM orders
     GROUP BY customer_id
 	order by customer_id
 ),
 reference AS (
     SELECT MAX(order_timestamp)::date AS snapshot_date
-    FROM orders_cleaned
+    FROM orders
 )
 SELECT
     c.customer_id,
@@ -64,9 +66,6 @@ SELECT
             THEN 'At-Risk'
         ELSE 'Churned'
     END AS churn_status
-
-FROM customers_cleaned c
+FROM customers c
 LEFT JOIN order_metrics om USING (customer_id)
 CROSS JOIN reference r;
-
-select * from dim_customers

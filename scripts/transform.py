@@ -62,8 +62,6 @@ def transform_data(cust, ord):
 
     # Fixing the remaining columns
     # ---------------------------------------------------------------------------------
-    # A valid Indian mobile number is exactly 10 digits
-    # and starts with 6, 7, 8, or 9
 
     # Phone
     clean_cust['phone_available'] = clean_cust['phone'].where(

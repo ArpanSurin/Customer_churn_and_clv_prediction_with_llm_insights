@@ -37,7 +37,7 @@ def load_to_db(clean_cust, clean_ord):
                     if_exists = 'replace',
                     index = False,
                     method = 'multi',
-                    chunksize = 5_000
+                    chunksize = 10_000
                 )
             print(f"[LOAD] {table_name} loaded successfully\n")
 
