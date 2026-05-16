@@ -84,7 +84,7 @@ with tab1:
 
         st.markdown("<br>", unsafe_allow_html=True)
 
-        submit = st.form_submit_button("Generate Prediction", use_container_width=True)
+        submit = st.form_submit_button("Generate Prediction", width='stretch')
 
     if submit:
         payload = {
@@ -163,17 +163,17 @@ with tab1:
                         </div>
                     </div>
                 """, unsafe_allow_html=True)
+
                 st.markdown("### 🤖 AI Business Consultant")
                 st.info(pred["expert_advice"])
 
-                
                 with col1:
                     st.metric("Churn Risk", pred["churn_status"])
                 with col2:
                     st.metric("Confidence", pred["churn_probability"])
                 with col3:
-                    st.metric("Predicted CLV", f"${pred['predicted_lifetime_value']}")
-                    
+                    st.metric("Predicted CLV", f"${pred['predicted_lifetime_value']:.2f}")
+                
             else:
                 st.error(f"Error: {res_data.get('detail', 'Unknown error')}")
 
@@ -188,9 +188,7 @@ with tab2:
         try:
             # Query the log table
             history_df = pd.read_sql(
-                "SELECT * FROM realtime_logs ORDER BY timestamp DESC LIMIT 10", 
-                engine
-            )
+                "SELECT * FROM realtime_logs ORDER BY timestamp DESC LIMIT 10", con=engine)
             
             if not history_df.empty:
                 # Display as a clean table
@@ -201,7 +199,7 @@ with tab2:
                         "clv": st.column_config.NumberColumn("Predicted CLV ($)"),
                         "strategy": "Action Plan"
                     },
-                    use_container_width=True,
+                    width='stretch',
                     hide_index=True
                 )
                 
@@ -256,16 +254,18 @@ with tab3:
                     status_map = {0: "Active", 1: "At-risk", 2: "Churned"}
                     # c3.write(f"**Status:** {status_map.get(row['predicted_churn_id'], 'Unknown')}")
                     c3.write(f"**Status:** {status_map.get(row['churn_status'], 'Unknown')}")
+                
             else:
                 st.warning("No record found for that Customer ID.")
         except Exception as e:
             st.error(f"Search failed: {e}")
+            st.divider()
 
-    # Optional: Overview Table
+
     st.markdown("---")
     st.subheader("All Predicted Customers")
-    all_data = pd.read_sql("SELECT * FROM realtime_logs LIMIT 100", engine)
-    st.dataframe(all_data, use_container_width=True)
+    all_data = pd.read_sql("SELECT * FROM realtime_logs LIMIT 100", index_col='customer_id', con=engine)
+    st.dataframe(all_data, width='stretch')
 
 st.markdown("---")
 

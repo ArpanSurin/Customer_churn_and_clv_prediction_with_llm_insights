@@ -1,4 +1,4 @@
-# Customer Churn & CLV Prediction
+# End-to-End Customer Churn Prediction & CLV Estimation with LLM insights
 
 An end-to-end e-commerce data pipeline built in Python. This project covers raw data ingestion, data cleaning, feature engineering, machine learning for churn and CLV, a REST API backend, and a Streamlit-powered customer insights experience.
 
@@ -49,6 +49,7 @@ https://www.kaggle.com/datasets/arpanboassurin/shopflow-data
 7. Predictions are generated in `src/predict.py` and stored in the database
 8. FastAPI serves real-time scoring through `/predict`
 9. Streamlit delivers an interactive UI for business users
+10. Groq LLM model integration  providing AI driven insights and action plan
 
 ---
 
@@ -194,6 +195,12 @@ scripts/
 └── views.py
 
 sql/
+├── 01.revenue_by_category.sql
+├── 02.contact_coverage.sql
+├── 03.customer_conversion_rate.sql
+├── 04.customer_churn_risk.sql
+├── 05.customer_segmentation.sql
+├── 06.payment_method.sql
 └── 07.views.sql
 
 src/
@@ -228,4 +235,4 @@ Readme.md
 - Interactive UX with Streamlit
 
 ## 🛠️ Tech Stack
-Python · Pandas · PostgreSQL · SQLAlchemy · psycopg2 · Power BI · Scikit-Learn · Streamlit · FastAPI
+Python · Pandas · PostgreSQL · SQLAlchemy · psycopg2 · Power BI · Scikit-Learn · Streamlit · FastAPI · Groq LLM

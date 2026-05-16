@@ -1,7 +1,5 @@
 from pathlib import Path
-
 import pandas as pd
-import numpy as np
 import os
 from groq import Groq
 from dotenv import load_dotenv

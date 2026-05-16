@@ -8,7 +8,9 @@ data/
 
 logs/
 
-dashboard.pbix
+dashboard/dashboard.pbix
+
 
 **/__pycache__/
 
+docs/

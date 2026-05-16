@@ -27,6 +27,7 @@ if __name__ == "__main__":
     # )
     # create_views(engine=engine, file_path=path)
     df_cust, df_ord = get_data_from_views(engine)
+    
     df_final = feature_engineering(df_cust, df_ord)
     df = train_model(df_final)
     run_predictions()
