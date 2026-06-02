@@ -159,9 +159,6 @@ async def ask_expert(customer_data: dict, user_query: str):
     Question: {user_query}
     """
     
-    # Call your Groq function with the new context
-    answer = get_custom_response(context)
-    return {"answer": answer}
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
 

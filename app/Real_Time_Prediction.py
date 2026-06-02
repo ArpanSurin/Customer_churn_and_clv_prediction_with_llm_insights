@@ -22,7 +22,6 @@ with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/3135/3135715.png", width=100)
     st.title("Team Members")
     st.markdown("**RA2211026050004 - Arpan Surin**")
-    st.markdown("**RA2211026050002 - Anuj Kumar**")
     st.markdown("""
     **Computer Science & Technology with spec. in Artificial Intelligence and Machine Learning (AI & ML) A Section**
 """)
